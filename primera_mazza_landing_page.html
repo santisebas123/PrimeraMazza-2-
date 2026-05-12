@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Primera Mazza | Catering para Eventos</title>
+  <meta name="description" content="Primera Mazza: catering artesanal para eventos en Béccar. Pernil, carne desmechada, pizzas, viandas congeladas y opciones para reuniones." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --dark: #1e1713;
+      --brown: #5f3524;
+      --gold: #c8944f;
+      --cream: #fff7ea;
+      --soft: #f5eadb;
+      --white: #ffffff;
+      --muted: #74675d;
+      --shadow: 0 18px 45px rgba(33, 20, 12, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 247, 234, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(95, 53, 36, 0.12);
+    }
+
+    .nav-content {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--brown), var(--gold));
+      color: var(--cream);
+      display: grid;
+      place-items: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: var(--brown);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 0;
+      border-radius: 999px;
+      padding: 13px 22px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary {
+      background: var(--brown);
+      color: var(--white);
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--brown);
+      border: 1px solid rgba(95, 53, 36, 0.16);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 88px 0 70px;
+      background:
+        radial-gradient(circle at top left, rgba(200, 148, 79, 0.25), transparent 32%),
+        linear-gradient(135deg, #fff7ea 0%, #f3dfc4 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 54px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(200, 148, 79, 0.18);
+      color: var(--brown);
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .hero h1,
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      line-height: 1.05;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 78px);
+      max-width: 720px;
+      margin-bottom: 22px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 610px;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      max-width: 620px;
+    }
+
+    .stat {
+      background: rgba(255, 255, 255, 0.62);
+      border: 1px solid rgba(95, 53, 36, 0.12);
+      border-radius: 22px;
+      padding: 18px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 24px;
+      color: var(--brown);
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .hero-card {
+      position: relative;
+      min-height: 520px;
+      border-radius: 36px;
+      padding: 28px;
+      background:
+        linear-gradient(rgba(30, 23, 19, 0.2), rgba(30, 23, 19, 0.54)),
+        url('https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1200&q=80') center/cover;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .floating-menu {
+      width: 100%;
+      background: rgba(255, 247, 234, 0.94);
+      border-radius: 26px;
+      padding: 22px;
+      backdrop-filter: blur(10px);
+    }
+
+    .floating-menu h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .floating-menu ul {
+      list-style: none;
+      display: grid;
+      gap: 9px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    section {
+      padding: 82px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 34px;
+    }
+
+    .section-title {
+      font-size: clamp(34px, 4vw, 52px);
+      color: var(--dark);
+    }
+
+    .section-text {
+      color: var(--muted);
+      max-width: 560px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid rgba(95, 53, 36, 0.11);
+      border-radius: 28px;
+      padding: 26px;
+      box-shadow: 0 10px 30px rgba(33, 20, 12, 0.07);
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      background: var(--soft);
+      display: grid;
+      place-items: center;
+      font-size: 26px;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .menu-section {
+      background: var(--dark);
+      color: var(--cream);
+    }
+
+    .menu-section .section-title,
+    .menu-section .section-text {
+      color: var(--cream);
+    }
+
+    .menu-section .section-text {
+      opacity: 0.76;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .menu-item {
+      border: 1px solid rgba(255, 247, 234, 0.13);
+      border-radius: 28px;
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.055);
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .menu-number {
+      flex: 0 0 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: var(--gold);
+      color: var(--dark);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+    }
+
+    .menu-item h3 {
+      margin-bottom: 6px;
+      font-size: 21px;
+    }
+
+    .menu-item p {
+      color: rgba(255, 247, 234, 0.72);
+    }
+
+    .reviews {
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 34px;
+      align-items: stretch;
+    }
+
+    .rating-box {
+      background: linear-gradient(135deg, var(--brown), #2d1f18);
+      color: var(--cream);
+      border-radius: 32px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .rating-box .score {
+      font-size: 76px;
+      font-family: 'Playfair Display', serif;
+      line-height: 1;
+      margin: 10px 0;
+    }
+
+    .stars {
+      color: #ffd27d;
+      letter-spacing: 3px;
+      font-size: 22px;
+    }
+
+    .review-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .quote {
+      background: var(--white);
+      border-radius: 26px;
+      padding: 24px;
+      border: 1px solid rgba(95, 53, 36, 0.1);
+    }
+
+    .quote p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .quote strong {
+      color: var(--brown);
+    }
+
+    .contact {
+      background: linear-gradient(135deg, #f3dfc4, #fff7ea);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .contact-panel {
+      background: var(--white);
+      border-radius: 32px;
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-list {
+      list-style: none;
+      display: grid;
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .contact-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .map-placeholder {
+      min-height: 360px;
+      border-radius: 32px;
+      overflow: hidden;
+      background:
+        linear-gradient(rgba(30, 23, 19, 0.15), rgba(30, 23, 19, 0.25)),
+        url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80') center/cover;
+      display: flex;
+      align-items: flex-end;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .map-card {
+      width: 100%;
+      background: rgba(255, 247, 234, 0.92);
+      border-radius: 24px;
+      padding: 22px;
+    }
+
+    footer {
+      background: var(--dark);
+      color: rgba(255, 247, 234, 0.72);
+      padding: 32px 0;
+    }
+
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 80;
+      background: #25d366;
+      color: white;
+      width: 62px;
+      height: 62px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      box-shadow: 0 16px 35px rgba(37, 211, 102, 0.35);
+      font-size: 29px;
+    }
+
+    @media (max-width: 920px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid,
+      .reviews,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        min-height: 430px;
+      }
+
+      .cards,
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading {
+        display: block;
+      }
+
+      .section-text {
+        margin-top: 12px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero {
+        padding-top: 56px;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .menu-item {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-content">
+      <a class="brand" href="#inicio" aria-label="Primera Mazza inicio">
+        <span class="brand-mark">PM</span>
+        <span>Primera Mazza</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#servicios">Servicios</a>
+        <a href="#menu">Menú</a>
+        <a href="#resenas">Reseñas</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <a class="btn btn-primary" href="https://wa.me/5491124064204" target="_blank" rel="noopener">Pedir presupuesto</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Catering artesanal en Béccar</span>
+          <h1>Comida abundante, rica y lista para que tu evento salga perfecto.</h1>
+          <p>
+            En Primera Mazza preparamos opciones de catering para reuniones, cumpleaños, eventos familiares y encuentros empresariales. Sabores caseros, porciones generosas y atención cercana de principio a fin.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/5491124064204?text=Hola%20Primera%20Mazza,%20quiero%20consultar%20por%20un%20catering" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+            <a class="btn btn-secondary" href="#menu">Ver opciones</a>
+          </div>
+
+          <div class="hero-stats" aria-label="Datos destacados">
+            <div class="stat">
+              <strong>5.0</strong>
+              <span>calificación promedio</span>
+            </div>
+            <div class="stat">
+              <strong>20</strong>
+              <span>reseñas en Google</span>
+            </div>
+            <div class="stat">
+              <strong>Béccar</strong>
+              <span>zona norte, Buenos Aires</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Foto gastronómica">
+          <div class="floating-menu">
+            <h3>Favoritos para eventos</h3>
+            <ul>
+              <li>🍖 Pernil y pata para compartir</li>
+              <li>🥪 Carne desmechada en bandejas</li>
+              <li>🍕 Pizzas y opciones listas para servir</li>
+              <li>❄️ Comida congelada práctica y sabrosa</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="servicios">
+      <div class="container">
+        <div class="section-heading">
+          <h2 class="section-title">Catering pensado para disfrutar</h2>
+          <p class="section-text">Te ayudamos a resolver la comida del evento con opciones simples, ricas y rendidoras. Ideal para grupos chicos, medianos o reuniones de muchas personas.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon">🍽️</div>
+            <h3>Eventos y reuniones</h3>
+            <p>Propuestas para cumpleaños, encuentros familiares, celebraciones, oficinas y juntadas con amigos.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🔥</div>
+            <h3>Comida lista para servir</h3>
+            <p>Preparaciones prácticas, abundantes y con buena presentación para que no tengas que ocuparte de cocinar.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🤝</div>
+            <h3>Asesoramiento cercano</h3>
+            <p>Te orientamos según cantidad de invitados, tipo de evento y combinación de platos para que no falte nada.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="menu-section" id="menu">
+      <div class="container">
+        <div class="section-heading">
+          <h2 class="section-title">Opciones destacadas</h2>
+          <p class="section-text">Estos son algunos de los productos más mencionados por clientes. Podés pedir disponibilidad, precios y recomendaciones por WhatsApp.</p>
+        </div>
+
+        <div class="menu-grid">
+          <article class="menu-item">
+            <div class="menu-number">01</div>
+            <div>
+              <h3>Pernil / pata para eventos</h3>
+              <p>Una opción clásica, rendidora y perfecta para servir con panes y salsas.</p>
+            </div>
+          </article>
+
+          <article class="menu-item">
+            <div class="menu-number">02</div>
+            <div>
+              <h3>Carne desmechada</h3>
+              <p>Ideal para sándwiches, bandejas calientes o mesas informales con mucho sabor.</p>
+            </div>
+          </article>
+
+          <article class="menu-item">
+            <div class="menu-number">03</div>
+            <div>
+              <h3>Pizzas</h3>
+              <p>Prácticas para reuniones, cumpleaños y eventos donde se busca algo simple y rico.</p>
+            </div>
+          </article>
+
+          <article class="menu-item">
+            <div class="menu-number">04</div>
+            <div>
+              <h3>Comida congelada</h3>
+              <p>Opciones listas para guardar, calentar y resolver comidas sin complicaciones.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="resenas">
+      <div class="container reviews">
+        <div class="rating-box">
+          <span class="eyebrow">Opiniones de clientes</span>
+          <div class="score">5.0</div>
+          <div class="stars">★★★★★</div>
+          <p style="margin-top: 16px; opacity: .82;">Calificación basada en 20 reseñas destacando el servicio, la calidad del producto y la comida para eventos.</p>
+        </div>
+
+        <div class="review-list">
+          <article class="quote">
+            <p>“Excelente atención y mejor producto. La pata de cordero entera y la carne desmechada son espectaculares.”</p>
+            <strong>Federico Zulberti</strong>
+          </article>
+
+          <article class="quote">
+            <p>“Pedí bondiola y carne desmechada para un evento de 40 personas. Fue un éxito, desde las salsas hasta el pan.”</p>
+            <strong>Enrique Arguello</strong>
+          </article>
+
+          <article class="quote">
+            <p>“Todo fantástico. La atención, las sugerencias y los sándwiches de pulled beef fueron muy elogiados.”</p>
+            <strong>Maite Gondra</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contacto">
+      <div class="container contact-grid">
+        <div class="contact-panel">
+          <h2 class="section-title">Hacé tu consulta</h2>
+          <p class="section-text">Contanos la fecha, cantidad de personas y tipo de evento. Te ayudamos a elegir una opción que rinda bien y quede rica.</p>
+
+          <ul class="contact-list">
+            <li><span>📍</span><span>España 176, Béccar, Provincia de Buenos Aires</span></li>
+            <li><span>📞</span><span>011 15-2406-4204</span></li>
+            <li><span>⭐</span><span>5.0 en Google con 20 reseñas</span></li>
+          </ul>
+
+          <div style="margin-top: 26px; display: flex; gap: 12px; flex-wrap: wrap;">
+            <a class="btn btn-primary" href="https://wa.me/5491124064204?text=Hola%20Primera%20Mazza,%20quiero%20pedir%20informaci%C3%B3n%20para%20un%20evento" target="_blank" rel="noopener">Enviar WhatsApp</a>
+            <a class="btn btn-secondary" href="https://www.google.com/maps/search/?api=1&query=Espa%C3%B1a%20176%20B%C3%A9ccar%20Buenos%20Aires" target="_blank" rel="noopener">Cómo llegar</a>
+          </div>
+        </div>
+
+        <div class="map-placeholder" aria-label="Ubicación de Primera Mazza">
+          <div class="map-card">
+            <h3>Estamos en Béccar</h3>
+            <p style="color: var(--muted); margin-top: 6px;">Zona norte de Buenos Aires. Consultá por retiro, entrega o modalidad según tu evento.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <p>© 2026 Primera Mazza. Catering artesanal.</p>
+      <p>Diseño web para presentación comercial.</p>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/5491124064204" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">☘</a>
+</body>
+</html>
